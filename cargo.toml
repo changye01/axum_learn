@@ -1,0 +1,43 @@
+[package]
+name = "axum-learn"
+version = "0.1.0"
+edition = "2021"
+publish = false
+
+[dependencies]
+axum = "0.8.8"
+tokio = { version = "1.48.0", features = ["full"] }
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+async-trait = "0.1"
+
+# Tower 中间件
+tower = { version = "0.5", features = ["timeout", "util"] }
+tower-http = { version = "0.6", features = [
+    "trace",        # 请求追踪
+    "cors",         # CORS 支持
+    "compression-full",  # 响应压缩
+    "catch-panic", # Panic 捕获
+] }
+
+# 错误处理和日志
+thiserror = "1.0"
+chrono = { version = "0.4", features = ["serde"] }
+tracing-subscriber = { version = "0.3", features = ["env-filter"] }
+tracing = "0.1"
+
+# 配置管理
+config = "0.14"
+clap = { version = "4.5", features = ["derive"] }
+
+# SeaORM 数据库 ORM
+sea-orm = { version = "1.0", features = [
+    "sqlx-mysql", 
+    "runtime-tokio-rustls", 
+    "macros",
+    "debug-print"
+] }
+# Connection pool support
+bb8 = "0.8"
+sea-orm-migration = "1.0"
+percent-encoding = "2.3"

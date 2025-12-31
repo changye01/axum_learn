@@ -1,0 +1,44 @@
+# Development environment configuration
+
+[app]
+name = "axum-learn"
+debug = true
+
+[server]
+host = "0.0.0.0"
+port = 3000
+
+[logging]
+level = "debug"
+format = "pretty"
+
+[database]
+driver = "mysql"
+host = "10.100.0.17"
+port = 3306
+database = "db_advtmanager_ozon"
+username = "wsadmin"
+password = "xast890567??"
+charset = "utf8"
+collation = "utf8_unicode_ci"
+prefix = "sfc_ozon_"
+
+# 连接池配置
+max_connections = 50
+min_connections = 5
+connect_timeout = 10
+acquire_timeout = 30
+idle_timeout = 60
+max_lifetime = 1800
+
+# 日志配置
+enable_logging = true
+slow_query_log = false
+slow_query_threshold = 1000
+
+[middleware]
+# Development environment - enable all middleware for debugging
+trace = true
+cors = true
+compression = true
+catch_panic = true

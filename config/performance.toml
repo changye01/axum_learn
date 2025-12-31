@@ -1,0 +1,44 @@
+# Performance testing configuration
+
+[app]
+name = "axum-learn"
+debug = false
+
+[server]
+host = "0.0.0.0"
+port = 3000
+
+[logging]
+level = "error"
+format = "json"
+
+[database]
+driver = "mysql"
+host = "localhost"
+port = 3306
+database = "axum_learn"
+username = "root"
+password = ""
+charset = "utf8"
+collation = "utf8_unicode_ci"
+prefix = ""
+
+# 连接池配置 - 高性能优化
+max_connections = 100
+min_connections = 20
+connect_timeout = 5
+acquire_timeout = 3
+idle_timeout = 120
+max_lifetime = 600
+
+# 日志配置 - 最小日志开销
+enable_logging = false
+slow_query_log = false
+slow_query_threshold = 2000
+
+[middleware]
+# Performance environment - minimal middleware for maximum throughput
+trace = false
+cors = false
+compression = false
+catch_panic = true
